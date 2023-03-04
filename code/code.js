@@ -38,13 +38,29 @@ let ano = document.getElementById('ano');
 let hora = document.getElementById('hora');
 let minuto = document.getElementById('minuto');
 let segundo = document.getElementById('segundo');
+let milisegundos = document.getElementById('milisegundo');
 
-let arrysemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"];
+let arrysemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feria", "Quinta-Feira", "Sexta-Feira", "Sabado"];
 let arraymes = ["Janeiro","Fevereira","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
 datebtn.addEventListener('click', () =>{
-    ano.innerText = new Date().getFullYear();
-    mes.innerText = new Date().getMonth();
-    dia.innerText = new Date().getDate();
-    dia_semana.innerText = new Date().getDay();
+    let now = new Date();
+    
+    dia.innerText =  `Dia: ` + now.getDate();
+    ano.innerText = `Ano: `  + now.getFullYear();
+    mes.innerText = `Mês: ` + arraymes[now.getMonth()];
+    dia_semana.innerText = `Dia Semana: ` + arrysemana[now.getDay()];
+    hora.innerText = `Horas: ` + now.getHours();
+    minuto.innerText = `Minutos` + now.getMinutes();
+    segundo.innerText = `Segundos: ` + now.getSeconds();
+    milisegundos.innerText = `Milisegundos: ` + now.getMilliseconds();
+
+    console.log(now.getFullYear());
+    console.log(now.getMonth());
+    console.log(now.getDate());
+    console.log(now.getDay());
+    console.log(now.getHours());
+    console.log(now.getMinutes());
+    console.log(now.getSeconds());
+
 })
